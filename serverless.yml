@@ -1,9 +1,9 @@
 # serverless.yml
 # for sidecar
 
-service: sidecar-manoj-testing-1
+service: sidecar-manoj-testing-2
 custom:
-  tableName: 'sidecar-manoj-users-table-${self:provider.stage}-1'
+  tableName: 'sidecar-manoj-users-table-${self:provider.stage}-2'
   myStage: ${opt:stage, self:provider.stage}
   myProfile:
     prod: yogesh_local

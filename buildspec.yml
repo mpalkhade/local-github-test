@@ -6,5 +6,4 @@ phases:
       - npm install serverless
   build:
     commands:
-      - npm test
       - ./node_modules/.bin/serverless deploy --stage dev | tee deploy.ou
