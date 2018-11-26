@@ -5,9 +5,9 @@ service: sidecar-manoj-testing-2
 custom:
   tableName: 'sidecar-manoj-users-table-${self:provider.stage}-2'
   myStage: ${opt:stage, self:provider.stage}
-  myProfile:
-    prod: yogesh_local
-    dev: mjp
+  # myProfile:
+    # prod: yogesh_local
+    # dev: mjp
 provider:
   name: aws
   runtime: nodejs6.10
