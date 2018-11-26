@@ -15,7 +15,7 @@ custom:
 provider:
   name: aws
   runtime: nodejs6.10
-  stage: ${opt:stage, self:provider.stage}
+  #stage: ${opt:stage, self:provider.stage}
   region: us-east-1
   #profile: ${self:custom.myProfile.${self:custom.myStage}}
   iamRoleStatements:
