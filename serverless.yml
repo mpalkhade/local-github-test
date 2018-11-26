@@ -64,3 +64,9 @@ resources:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
         TableName: ${self:custom.tableName}
+artifacts:
+  files:
+    # export artifacts needed for staging and prod deployments to an S3 bucket
+    - artifacts/**/*
+    - serverless.yml
+    - deploy.sh
