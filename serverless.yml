@@ -13,7 +13,7 @@ provider:
   runtime: nodejs6.10
   stage: dev
   region: us-east-1
-  profile: ${self:custom.myProfile.${self:custom.myStage}}
+  #profile: ${self:custom.myProfile.${self:custom.myStage}}
   iamRoleStatements:
     - Effect: Allow
       Action:
