@@ -10,7 +10,7 @@ phases:
       - mkdir artifacts
       # create staging deployment package
       - mkdir artifacts/stg
-      - serverless package --package artifacts/stg --stage stg -v
+      - ./node_modules/.bin/serverless package --package artifacts/stg --stage stg -v
       # create prod deployment package
       - mkdir artifacts/prod
-      - serverless package --package artifacts/prod --stage prod -v
+      - ./node_modules/.bin/serverless package --package artifacts/prod --stage prod -v
