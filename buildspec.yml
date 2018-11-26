@@ -1,0 +1,10 @@
+version: 0.1
+phases:
+  install:
+    commands:
+      - npm install
+      - npm install serverless
+  build:
+    commands:
+      - npm test
+      - ./node_modules/.bin/serverless deploy --stage dev | tee deploy.ou
