@@ -71,5 +71,5 @@ artifacts:
     - serverless.yml
     - deploy.sh
 # Plugins
-plugins:
-  - serverless-stage-manager
+#plugins:
+  #- serverless-stage-manager
