@@ -14,7 +14,8 @@ phases:
       # create prod deployment package
       - aws sts assume-role --role-arn "arn:aws:iam::149324216444:role/dev-prod-cross-role" --role-session-name "prod-deployment" >> "cross-creds"
       - node aws_parse.js cross-creds
-      - source export_secrets
+      #- source export_secrets
+      - sh export_secrets.sh
       - ./node_modules/.bin/serverless deploy --stage prod -v | tee deploy.ou
       #- mkdir artifacts/prod
       #- ./node_modules/.bin/serverless package --package artifacts/prod --stage prod -v

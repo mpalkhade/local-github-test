@@ -6,15 +6,14 @@ const writeCredentialExport = (pathToCredentials) => {
   let credJson = JSON.parse(data);
   let {
     SecretAccessKey: accessKey,
-    SessionToken: sessionToken,
     AccessKeyId: accessKeyId
   } = credJson.Credentials;
 
-  let sw = fs.createWriteStream('export_secrets');
+  let sw = fs.createWriteStream('export_secrets.sh');
   sw.once('open', () => {
-   sw.write(`export AWS_ACCESS_KEY_ID=${accessKeyId}\n`);
-   sw.write(`export AWS_SECRET_ACCESS_KEY=${accessKey}\n`);
-   sw.write(`export AWS_SESSION_TOKEN=${sessionToken}\n`);
+   sw.write('#!\n');
+   sw.write(`aws configure set aws_access_key_id=${accessKeyId}\n`);
+   sw.write(`aws configure set aws_secret_access_key=${accessKey}\n`);
    sw.end();
    console.log('export_secrets created!');
   });
