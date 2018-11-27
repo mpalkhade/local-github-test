@@ -12,5 +12,8 @@ phases:
       - mkdir artifacts/stg
       - ./node_modules/.bin/serverless package --package artifacts/stg --stage stg -v
       # create prod deployment package
+      - aws sts assume-role --role-arn "arn:aws:iam::149324216444:role/dev-prod-cross-role" --role-session-name "prod-deployment" >> "cross-creds"
+      - cat cross-creds
+
       - mkdir artifacts/prod
       - ./node_modules/.bin/serverless package --package artifacts/prod --stage prod -v
