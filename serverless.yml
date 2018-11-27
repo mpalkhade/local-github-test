@@ -8,10 +8,11 @@ custom:
   # myProfile:
     # prod: yogesh_local
     # dev: mjp
+    #stage: ${self:provider.stage}
 provider:
   name: aws
   runtime: nodejs6.10
-  stage: ${opt:stage, self:provider.stage}
+  stage: dev
   region: us-east-1
   #profile: ${self:custom.myProfile.${self:custom.myStage}}
   iamRoleStatements:
@@ -64,12 +65,3 @@ resources:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
         TableName: ${self:custom.tableName}
-artifacts:
-  files:
-    # export artifacts needed for staging and prod deployments to an S3 bucket
-    - artifacts/**/*
-    - serverless.yml
-    - deploy.sh
-# Plugins
-#plugins:
-  #- serverless-stage-manager
