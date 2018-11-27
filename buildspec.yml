@@ -6,7 +6,7 @@ phases:
       - npm install serverless
   build:
     commands:
-      - ./node_modules/.bin/serverless deploy --stage dev -v | tee deploy.ou
+      #- ./node_modules/.bin/serverless deploy --stage dev -v | tee deploy.ou
       #- mkdir artifacts
       # create staging deployment package
       #- mkdir artifacts/stg
@@ -17,6 +17,6 @@ phases:
       - #source export_secrets
       - chmod +x export_secrets.sh
       - sh export_secrets.sh
-      - ./node_modules/.bin/serverless deploy 
+      - ./node_modules/.bin/serverless deploy --stage prod -v | tee deploy.ou
       #- mkdir artifacts/prod
       #- ./node_modules/.bin/serverless package --package artifacts/prod --stage prod -v
