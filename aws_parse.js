@@ -12,8 +12,9 @@ const writeCredentialExport = (pathToCredentials) => {
   let sw = fs.createWriteStream('export_secrets.sh');
   sw.once('open', () => {
    sw.write('#!\n');
-   sw.write(`aws configure set aws_access_key_id=${accessKeyId}\n`);
-   sw.write(`aws configure set aws_secret_access_key=${accessKey}\n`);
+   sw.write(`aws configure set aws_access_key_id ${accessKeyId};\n`);
+   sw.write(`aws configure set aws_secret_access_key ${accessKey};\n`);
+   sw.write(`echo "configuration set!"`);
    sw.end();
    console.log('export_secrets created!');
   });
