@@ -6,7 +6,7 @@ phases:
       - npm install serverless
   build:
     commands:
-      - ./node_modules/.bin/serverless deploy --stage $devdenv -v | tee deploy.ou
+      - ./node_modules/.bin/serverless deploy --stage $devenv -v | tee deploy.ou
       #- mkdir artifacts
       # create staging deployment package
       #- mkdir artifacts/stg
