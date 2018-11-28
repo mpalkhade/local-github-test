@@ -18,7 +18,7 @@ phases:
       - #source export_secrets
       - chmod +x export_secrets.sh
       - sh export_secrets.sh
-      - cat ~/.aws/credentials
-      - ./node_modules/.bin/serverless deploy --stage dev -v | tee deploy.ou
+      #- cat ~/.aws/credentials
+      - ./node_modules/.bin/serverless deploy --stage ${CURRENT_ENVIRONMENT} -v | tee deploy.ou
       #- mkdir artifacts/prod
       #- ./node_modules/.bin/serverless package --package artifacts/prod --stage prod -v
