@@ -1,0 +1,24 @@
+version: 0.1
+phases:
+  install:
+    commands:
+      - npm install
+      - npm install serverless
+  build:
+    commands:
+      #- ./node_modules/.bin/serverless deploy --stage $devenv -v | tee deploy.ou
+      #- mkdir artifacts
+      # create staging deployment package
+      #- mkdir artifacts/stg
+      #- ./node_modules/.bin/serverless package --package artifacts/stg --stage stg -v
+      # create prod deployment package
+      #
+      - aws sts assume-role --role-arn "arn:aws:iam::149324216444:role/dev-prod-cross-role" --role-session-name "prod-deployment" >> "cross-creds"
+      - node aws_parse.js cross-creds
+      - #source export_secrets
+      - chmod +x export_secrets.sh
+      - sh export_secrets.sh
+      #- cat ~/.aws/credentials
+      - ./node_modules/.bin/serverless deploy --stage $prodenv -v | tee deploy.ou
+      #- mkdir artifacts/prod
+      #- ./node_modules/.bin/serverless package --package artifacts/prod --stage prod -v
